@@ -16,7 +16,17 @@ namespace SinglyLinkedLists
         public SinglyLinkedListNode Next
         {
             get { return this.next; }
-            set { this.next = value; }
+            set
+            {
+                if(this == value)
+                {
+                    throw new ArgumentException();
+                } else
+                {
+                    this.next = value;
+                }
+
+            }
         }
 
         private string value;
@@ -54,6 +64,11 @@ namespace SinglyLinkedLists
         public bool IsLast()
         {
             throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            return this.value;
         }
     }
 }
